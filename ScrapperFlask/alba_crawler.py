@@ -41,7 +41,7 @@ def writeCSVfile(job_total_list: list, main_company: str):
 
   print(f"{main_company}.csv file is being made --- --- done without any exceptions")
 
-if __name__ == "__main__":
+def main():
   # setting up 
   os.system("clear")
   alba_url = "http://www.alba.co.kr"
@@ -63,3 +63,7 @@ if __name__ == "__main__":
 
   # done
   print("--- Each site is done! Check out the CSV files ---")
+  return "--- Each site is done! Check out the CSV files ---"
+
+if __name__ == "__main__":
+  main()

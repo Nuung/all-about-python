@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, redirect
+from alba_crawler import main
 
+# https://flask.palletsprojects.com/en/1.1.x/tutorial/views/
 app = Flask("Alba Scrapper")
+
+# Fake DB / route 밖에 나와 있어야 한다!
+
+db = {} # 서버 껏다 키면 초기화임 당연히 ㅋ
 
 @app.route("/")
 def home():
@@ -15,6 +21,14 @@ def report():
     
     if jobname: # None type 방지
         jobname = jobname.lower()
+        from_db = db.get(jobname)
+
+        # fake db use
+        if from_db:
+            jobs = from_db
+        else:
+            jobs = main()
+            db[jobname] = jobs
     else:
         return redirect("/")
     return render_template("report.html", searchingBy = jobname, something = "Test value")
