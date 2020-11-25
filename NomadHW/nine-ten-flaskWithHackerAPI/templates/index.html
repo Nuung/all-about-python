@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Nuung's Nomad Hacker News
+    </title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Nuung's Nomad Hacker News</h1>
+        <div>
+            Order by:
+            {% if isNew: %}
+            <a href="/?order_by=popular">Popular</a> |
+            <strong>New</strong>
+            {% else: %}
+            <strong>Popular</strong> |
+            <a href="/?order_by=new">New</a>
+            {% endif %}
+
+        </div>
+    </header>
+    <main>
+        {% for data in datas %}
+        <div>
+            <div>
+                <a href="/{{ data.objectID }}">
+                    <h3>{{ data.title }}</h3>
+                </a>
+                (<a href="{{ data.url }}" target="_blanl">{{ data.url }}</a>)
+            </div>
+            <div>
+                {{ data.points }} | By: {{ data.author }} | {{ data.num_comments }} comments
+            </div>
+        </div>
+        <hr />
+        {% endfor %}
+    </main>
+</body>
+
+</html>

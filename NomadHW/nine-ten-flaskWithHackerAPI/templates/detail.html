@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Nuung's Nomad Hacker News | {{ datas.title }}
+    </title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>{{ datas.title }}</h1>
+        <div>
+            {{ datas.points }} | By {{ datas.author }} | <a href="{{ datas.url }}" target="_blank">{{ datas.url }}</a>
+        </div>
+    </header>
+    <main>
+        {% for data in datas['comments'] %}
+        <div>
+            {% autoescape false %}
+            <strong>{{ data.author }}</strong>
+            <p>{{ data.comment_text }}</p>
+            {% endautoescape %}
+        </div>
+        <hr />
+        {% endfor %}
+    </main>
+</body>
+
+</html>
