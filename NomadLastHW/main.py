@@ -4,8 +4,7 @@ import lxml
 import requests
 import setting # config file
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, redirect, request, Blueprint, abort
-from exporter import save_to_file
+from flask import Flask, render_template, redirect, request, Blueprint, abort, send_file
 from jinja2 import TemplateNotFound
 
 """
