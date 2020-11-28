@@ -73,7 +73,7 @@
       margin-bottom: 10px;
     }
 
-    .info__header__middle:last-child {
+    .info__header__middle>.bold__btn {
       font-weight: bold;
     }
 
@@ -96,7 +96,7 @@
         <h1> Remote Jobs </h1>
         <h3>{{ datas|length }} {{ query }} jobs found. </h3>
         <a class="btn btn-success" href="/"> ← GO BACK </a>
-        <a class="btn btn-success" target="_blank" href="/export?query={{ query }}">Export to CSV</a>
+        <a class="btn btn-success bold__btn" target="_blank" href="/export?query={{ query }}">Export to CSV</a>
       </div>
       <div class="info__header__end"></div>
     </div>
